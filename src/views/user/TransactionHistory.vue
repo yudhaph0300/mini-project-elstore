@@ -41,6 +41,14 @@
             </v-col>
         </v-row>
         <v-btn class="mt-10" block rounded large color="primary" to="/">Back To Home</v-btn>
+        <v-footer padless color="#bbb" class="mt-5">
+    <v-col    
+      class="text-center"
+      cols="12"
+    >
+      {{ new Date().getFullYear() }} — <strong>elStore</strong>
+    </v-col>
+  </v-footer>
     </div>
 </template>
 

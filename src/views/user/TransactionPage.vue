@@ -64,10 +64,18 @@
                 <v-btn class="my-2" block large rounded outlined :to="'/ProductDetail/' + indexNumber">Cancel</v-btn>
             </div>
             <div v-else>
-                <v-btn block large rounded color="primary" to="/payment">Pay Now</v-btn>
+                <v-btn class="mt-5" block large rounded color="primary" to="/payment">Pay Now</v-btn>
             </div>
             
         </div>
+        <v-footer padless color="#bbb" class="mt-5">
+    <v-col    
+      class="text-center"
+      cols="12"
+    >
+      {{ new Date().getFullYear() }} — <strong>elStore</strong>
+    </v-col>
+  </v-footer>
 
             
         
