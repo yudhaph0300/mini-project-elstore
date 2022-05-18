@@ -2,7 +2,7 @@
     <div class="container text-center" >
         <v-row>
             <v-col>
-                <h3>Transaction</h3>
+                <h2>Transaction</h2>
             </v-col>
         </v-row>
         <v-row>
@@ -26,9 +26,13 @@
                         <th class="text-left">
                             Price
                         </th>
-                        <th>
+                        <th class="text-left">
                             Status
                         </th>
+                        <th class="text-left">
+                            Change status
+                        </th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -42,12 +46,22 @@
                         <td class="text-left">{{ product[item.id_product].name }}</td>
                         <td class="text-left">Rp. {{ product[item.id_product].price }},-</td>
                         <td class="text-left">{{ item.alreadyPaid ? 'Already paid' : 'Waiting for payment' }}</td>
+                        
+                        <td class="text-center">
+                        <div v-if="item.alreadyPaid == false">
+                            <v-btn @click="changeStatus(item.id)" block rounded color="primary">Change</v-btn>
+                        </div>
+                        <div v-else>
+                            <v-btn block rounded color="primary" disabled>Change</v-btn>
+                        </div>
+                        </td>
                         </tr>
                     </tbody>
                     </template>
                 </v-simple-table>
             </v-col>
         </v-row>
+        <v-btn block class="mt-5" rounded large  elevation="2" to="/admin">Back To Product</v-btn>
     </div>
 </template>
 
@@ -55,6 +69,11 @@
 import gql from 'graphql-tag'
 export default {
     name: 'AdminTransaction',
+    data() {
+        return {
+            
+        }
+    },
     apollo: {
         product: {
             query() {
@@ -67,6 +86,7 @@ export default {
                     description
                     onSale
                     image
+                    
                     }
                 }
                 `
@@ -89,10 +109,35 @@ export default {
         }
         
         
-    }, 
-    
+    },
+    methods: {
+        changeStatus(idTransaction) {
+            this.$apollo.mutate({
+                mutation: gql`
+                    mutation MyMutation($alreadyPaid: Boolean, $_eq: Int) {
+                        update_transaction(where: {id: {_eq: $_eq}}, _set: {alreadyPaid: $alreadyPaid}) {
+                            returning {
+                            alreadyPaid
+                            address
+                            customer
+                            id
+                            id_product
+                            }
+                        }
+                    }
 
+                `,
+                variables: {
+                    "_eq": idTransaction,
+                    "alreadyPaid": true
+                }
+            })
+        }
+    }
 }
+
+
+    
 </script>
 
 <style scoped>

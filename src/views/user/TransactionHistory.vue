@@ -16,12 +16,12 @@
                         </th>
                         <th class="text-left">
                             Customer
-                        </th>
-                        <th class="text-left">
-                            Id Product
-                        </th>
+                        </th>                        
                         <th class="text-left">
                             Product Name
+                        </th>
+                        <th class="text-left">
+                            Status
                         </th>
                         </tr>
                     </thead>
@@ -32,14 +32,15 @@
                         >
                         <td class="text-left">{{ item.id }}</td>
                         <td class="text-left">{{ item.customer }}</td>
-                        <td class="text-left">{{ item.id_product }}</td>
                         <td class="text-left">{{ product[item.id_product].name }}</td>
+                        <td class="text-left">{{ item.alreadyPaid ? 'Already paid' : 'Waiting for payment' }}</td>
                         </tr>
                     </tbody>
                     </template>
                 </v-simple-table>
             </v-col>
         </v-row>
+        <v-btn class="mt-10" block rounded large color="primary" to="/">Back To Home</v-btn>
     </div>
 </template>
 

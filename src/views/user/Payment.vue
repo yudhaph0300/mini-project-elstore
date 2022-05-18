@@ -9,10 +9,12 @@
             <v-col>
                 <p>
                     Please make payment to the following account:<br><span>BRI 1221 8430 2924 936</span>
+                    <br><br><br>
                 </p>
             </v-col>
         </v-row>
         <img :src="'https://ik.imagekit.io/yudha/elstore/clock_hOdHcQKFE.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1652856106306'" alt="">
+        <br><br><br><br><br>
         <v-row>
             <v-col>
                 <p>Your order will be sent after you make payment</p>

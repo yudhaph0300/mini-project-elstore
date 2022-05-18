@@ -6,7 +6,6 @@ import TransactionPage from '../views/user/TransactionPage.vue'
 import Payment from '../views/user/Payment.vue'
 import TransactionHistory from '../views/user/TransactionHistory.vue'
 
-import Dashboard from '../views/admin/Dashboard.vue'
 import ProductList from '../views/admin/ProductList.vue'
 import Transaction from '../views/admin/Transaction.vue'
 
@@ -41,12 +40,7 @@ const routes = [
   },
 
   {
-    path: '/admin',
-    name: 'Dashboard',
-    component: Dashboard
-  },
-  {
-    path: '/admin/ProductList',
+    path: '/admin/',
     name: 'ProductList',
     component: ProductList
   },

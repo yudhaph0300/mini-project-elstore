@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <v-btn fixed rounded large color="depressed" elevation="2" to="/admin/Transaction">Transaction</v-btn>
     <v-row>
       <h1 class="mx-auto">Daftar Produk</h1>
     </v-row>
@@ -97,15 +98,16 @@
                     <v-btn class="mx-2" color="error" @click="deleteProduct(item.id)">
                         Delete
                     </v-btn>
+                    
                 </td>
               </tr>
             </tbody>
-            
           </template>
         </v-simple-table>
       </v-col>
     </v-row>
     </div>
+    
     
   </v-container>
 </template>

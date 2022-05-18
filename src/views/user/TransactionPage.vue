@@ -4,6 +4,7 @@
         <v-row class="text-center">
             <v-col>
                 <h3>Form Customer</h3>
+                <br><br><br><br>
             </v-col>
         </v-row>
         
@@ -16,7 +17,7 @@
         <div v-else>
             <v-row>
             <v-col>
-                <h3 class="text-center">Transaction Page</h3>
+                <h3 class="text-center">Transaction</h3>
             </v-col>
             </v-row>
             <v-row>
@@ -59,7 +60,7 @@
             </v-row>
 
             <div v-if="confirm == false">
-                <v-btn block large rounded color="primary" @click="pay()">Confirm</v-btn>
+                <v-btn class="my-4" block large rounded color="primary" @click="pay()">Confirm</v-btn>
                 <v-btn class="my-2" block large rounded outlined :to="'/ProductDetail/' + indexNumber">Cancel</v-btn>
             </div>
             <div v-else>
@@ -110,20 +111,6 @@ export default {
                 `
             }
         },
-        // transaction: {
-        //     query() {
-        //         return gql`
-        //         query MyQuery1 {
-        //             transaction {
-        //             id
-        //             customer
-        //             address
-        //             alreadyPaid
-        //             }
-        //         }
-        //         `
-        //     }
-        // }
         
     },
     methods: {
